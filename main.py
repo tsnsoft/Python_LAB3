@@ -5,12 +5,12 @@ import random
 
 
 # функция для получения массива случайных чисел
-def random_array(n, m, max_value=21):
+def random_array(n, m=8, max_value=21):
     array = []  # основной массив
     for i in range(0, n):
         sub_array = []  # подмассив с числами
         for j in range(m):
-            # от минимального числа (-20) до максимального -1 (max_value - 1 = 20) с шагом (1)
+            # от минимального числа (-10) до максимального -1 (max_value - 1 = 20) с шагом (1)
             number = random.randrange(-10, max_value, 1)
             sub_array.append(number)  # добавление случайного числа в подмассив
         array.append(sub_array)  # добавление подмассива в массив
@@ -46,8 +46,10 @@ def counting(array):
 
 
 def main():
+    rowCount = 4
+    colCount = 5
     # вызов функции рандома массива, которая возвращает полученный массив
-    array = random_array(7, 8)  # можно изменить размер
+    array = random_array(rowCount, colCount)  # можно изменить размер
     print("Условие задания:\n"
           "Если сумма наибольшего и наименьшего чисел больше нуля,\n"
           "то увеличить максимальный элемент в два раза,\n"
@@ -62,7 +64,7 @@ def main():
         print("3. Выход.")
         key = input('Введите команду (1, 2 или 3): ')
         if key == '1':  # рандом, вывод и новые значения по условию нового массива
-            array = random_array(7, 8)
+            array = random_array(rowCount, colCount)
             print_array(array)
             max_value, min_value = counting(array)
         elif key == '2':
